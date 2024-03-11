@@ -1,11 +1,9 @@
 import { buscarEndereco,preencherCampos,erroCEP,limparErro } from "./modules/endereco.js";
-// import { formatarDataEHora, formatarNumeroNota } from "./utilitarios.js";
-// import { createJSON } from "./json.js";
 import { preencherTabela, atualizarTotais } from "./modules/tabelaDeProdutos.js";
 import { mascaraCpfOuCNPJ, mascaraTelefone, mascaraNumerica, mascaraMoeda, mascaraPeso } from './modules/masks.js';
+import { ativarNavLink, ativarTab } from './modules/navTabs.js';
 import { aplicarMascaras } from './modules/inputHandler.js';
 import { iniciarAplicacao } from './modules/iniciarAplicacao.js';
-import { ativarNavLink, ativarTab } from './modules/navTabs.js';
 import { gerarDanfe } from './modules/gerarDanfe.js';
 import { limpar } from './modules/limpar.js';
 
@@ -14,16 +12,21 @@ iniciarAplicacao();
 
 // Navegação entre as abas
 [
-  document.getElementById("numeroEmitente"),
-  document.getElementById("numeroDestinatario"),
-  document.getElementById("numeroTransporte"),
+  document.getElementById("estadoEmitente"),
+  document.getElementById("estadoDestinatario"),
+  document.getElementById("estadoTransporte"),
 ].forEach((el) => {
   el.addEventListener("blur", () => {
     ativarNavLink(), ativarTab();
   });
 });
 
-// APLICA MÁSCARAS
+document.getElementById("nav-tab").addEventListener('click', (ev) => {
+  const tabId = ev.target.getAttribute("data-bs-target").replace("#", "");
+  document.getElementById(tabId).childNodes[1][0].focus();
+});
+
+// Aplicação de Máscaras
 const telefoneEmitente = document.getElementById("telefoneEmitente");
 const telefoneDestinatario = document.getElementById("telefoneDestinatario");
 const telefoneTransporte = document.getElementById("telefoneTransporte");
@@ -52,7 +55,7 @@ aplicarMascaras(mascaraMoeda, valorFreteTransporte, valorProduto, descontoProdut
 const pesoBrutoTransporte = document.getElementById('pesoBrutoTransporte');
 aplicarMascaras(mascaraPeso, pesoBrutoTransporte);
 
-// Incluir Produto na Tabela
+// Inclusão de produtos na tabela
 document.getElementById("btnIncluirProduto").addEventListener("click", (ev) => {
   ev.preventDefault();
 
@@ -95,7 +98,6 @@ document.getElementById('btnExcluirProduto').addEventListener('click', function(
   const linhas = document.querySelectorAll('.selected-row');
 
   if(linhas.length == 0){
-  //  console.log(this.parentElement)
   } else {
     linhas.forEach((linha) => {
       linha.remove()
@@ -113,19 +115,12 @@ document.getElementById("btn-limpar-danfe").addEventListener("click", (ev) => {
   limpar();
 });
 
-
-
-
-
-
-
 // Endereço TAB Emitente
 const cepEmitenteInput = document.getElementById("cepEmitente");
 const saidaErroEmitente = document.getElementById("saida");
 
 cepEmitenteInput.addEventListener("blur", async () => {
   const enderecoEmitente = await buscarEndereco(cepEmitenteInput.value);
-  //console.log(enderecoEmitente)
   if (!enderecoEmitente.erro) {
     preencherCampos(
       enderecoEmitente,
@@ -153,16 +148,15 @@ cepEmitenteInput.addEventListener("input", function () {
 });
 
 // Endereço TAB Destinatario
-
 const cepDestinatarioInput = document.getElementById("cepDestinatario");
 const saidaErroDestinatario = document.getElementById("saidaErroDestinatario");
 
 cepDestinatarioInput.addEventListener("blur", async () => {
-  const enderecoEmitente = await buscarEndereco(cepDestinatarioInput.value);
+  const enderecoDestinatario = await buscarEndereco(cepDestinatarioInput.value);
 
-  if (!enderecoEmitente.erro) {
+  if (!enderecoDestinatario.erro) {
     preencherCampos(
-      enderecoEmitente,
+      enderecoDestinatario,
       document.getElementById("ruaDestinatario"),
       document.getElementById("bairroDestinatario"),
       document.getElementById("cidadeDestinatario"),
@@ -187,16 +181,15 @@ cepDestinatarioInput.addEventListener("input", function () {
 });
 
 // Endereço TAB Transporte
-
 const cepTransporteInput = document.getElementById("cepTransporte");
 const saidaErroTransporte = document.getElementById("saidaErroTransporte");
 
 cepTransporteInput.addEventListener("blur", async () => {
-  const enderecoEmitente = await buscarEndereco(cepTransporteInput.value);
+  const enderecoTransporte = await buscarEndereco(cepTransporteInput.value);
 
-  if (!enderecoEmitente.erro) {
+  if (!enderecoTransporte.erro) {
     preencherCampos(
-      enderecoEmitente,
+      enderecoTransporte,
       document.getElementById("ruaTransporte"),
       document.getElementById("bairroTransporte"),
       document.getElementById("cidadeTransporte"),

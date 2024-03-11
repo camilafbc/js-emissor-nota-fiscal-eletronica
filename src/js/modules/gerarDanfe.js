@@ -38,7 +38,7 @@ export function gerarDanfe() {
     localStorage.setItem("danfe", JSON.stringify(dados));
     localStorage.setItem('danfe-save', JSON.stringify(danfeSave))
 
-    window.open("../pages/danfe.html");
+    window.open("../src/pages/danfe.html");
 
   } else {
   

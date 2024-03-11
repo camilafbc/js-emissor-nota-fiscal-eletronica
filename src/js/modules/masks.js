@@ -1,4 +1,5 @@
-import Inputmask from "../../vendor/RobinHerbots-Inputmask-6a54ccd/dist/inputmask.es6.js";
+// import Inputmask from "../../vendor/RobinHerbots-Inputmask-6a54ccd/dist/inputmask.es6.js";
+import Inputmask from "../../../vendor/RobinHerbots-Inputmask-6a54ccd/dist/inputmask.es6.js";
 
 function mascaraTelefone(elemento) {
   const elementoInput = elemento;

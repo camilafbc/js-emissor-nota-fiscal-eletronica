@@ -25,6 +25,10 @@ body {
   background-color: var(--body-background-color);
 }
 
+input, select {
+  outline: none;
+}
+
 .container {
   background-color: var(--cinza);
   border: 3px solid var(--laranja-senac);
@@ -85,6 +89,14 @@ nav .nav-link:hover {
 }
 
 
+.tab-pane {
+  padding-top: 1.5rem;
+}
+
+.tab-pane:not(.active) {
+  border-top: 1.5px solid var(--laranja-claro-senac);
+}
+
 #nav-tabContent {
   min-height: 620px;
   background-color: var(--white-color);
@@ -101,13 +113,6 @@ nav .nav-link:hover {
   border-bottom: 1.5px solid transparent;
 }
 
-.tab-pane {
-  padding-top: 1.5rem;
-}
-
-.tab-pane:not(.active) {
-  border-top: 1.5px solid var(--laranja-claro-senac);
-}
 
 #nav-tab {
   border-bottom: 1.5px solid var(--laranja-claro-senac);

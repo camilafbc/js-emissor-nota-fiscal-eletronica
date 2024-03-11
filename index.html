@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/icons8-nota-fiscal-electrónica-48.png" type="image/x-icon">
+    <title>Emissor de Nota Fiscal</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- SweetAlert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container px-0 my-2">
+
+        <div class="header">
+            <div class="header-content">
+                <!-- <img src="image/icons8-note-100.png" alt=""> -->
+                <img src="image/icons8-nota-fiscal-electrónica-48.png" alt="nota-fiscal-eletronica" alt="">
+                <h1>Emissão de Nota Fiscal</h1>
+            </div>
+        </div>
+
+        <div class="danfe_container m-4 px-3">
+            <div class="nota d-flex flex-column gap-1  pe-3 border-right">
+                <span class="fw-semibold">Nº da Nota:</span>
+                <span class="fw-medium danfe-subtitles" id="numNota">000000001</span>
+            </div>
+            <div class="serie d-flex flex-column gap-1  px-3  border-right">
+                <span class="fw-semibold">Série:</span>
+                <span class="fw-medium danfe-subtitles" id="serieNota">001</span>
+            </div>
+            <div class="data-emissao d-flex flex-column gap-1  px-3  border-right">
+                <span class="fw-semibold">Data de Emissão:</span>
+                <input type="date" id="dataEmissao" style="border:none; width: 90%" class=" danfe-subtitles">
+            </div>
+            <div class="data-hora-saida d-flex flex-column gap-1  px-3  border-right">
+                <span class="fw-semibold">Data e Hora </span>
+                <input type="datetime" name="dataEHora" id="dataEHora"  style="border:none" class=" danfe-subtitles">
+            </div>
+            <div class="natureza-operacao d-flex flex-column gap-1 px-3 border-right">
+                <span class="fw-semibold">Natureza da Operação</span>
+                <select id="naturezaOperacao">
+                    <option value="">Venda de Mercadoria</option>
+                    <option value="">Devolução</option>
+                    <option value="">Remessa de Bens e Mercadorias</option>
+                    <option value="">Retorno de Bens e Mercadorias</option>
+                    <option value="">Exportação</option>
+                    <option value="">Entrega Futura</option>
+                </select>
+            </div>
+            <div class="tipo-nota ps-3 danfe-subtitles" style="width: 200px;">
+                <span class="fw-semibold">Tipo:</span>
+                <div class="d-flex align-items-center gap-3">
+                    <div>
+                        <input type="radio" name="tipoNota" id="Entrada" value="0">
+                        <label for="Entrada">Entrada</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="tipoNota" id="Saida" value="1">
+                        <label for="Saida">Saida</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <nav>
+            <div class="nav nav-tabs mx-4" id="nav-tab" role="tablist">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-emitente" type="button" role="tab" aria-controls="nav-emitente" aria-selected="true">EMITENTE</button>
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-destinatario" type="button" role="tab" aria-controls="nav-destinatario" aria-selected="false">DESTINATARIO</button>
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-transporte" type="button" role="tab" aria-controls="nav-transporte" aria-selected="false">TRANSPORTE</button>
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-produtos" type="button" role="tab" aria-controls="nav-produtos" aria-selected="false">PRODUTOS</button>
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-adicionais" type="button" role="tab" aria-controls="nav-adicionais" aria-selected="false">DADOS ADICIONAIS</button>
+            </div>
+        </nav>
+        <!-- TABS -->
+          <div class="tab-content mx-4" id="nav-tabContent">
+
+            <!-- EMITENTE -->
+            <div class="tab-pane fade show active" id="nav-emitente" role="tabpanel" aria-labelledby="nav-emitente-tab" tabindex="0">
+
+                <form class="row g-3">
+
+                    <div class="row form-row">
+                        <div class="col-md-6">
+                            <label for="razaoSocialEmitente" class="form-label">Razão Social</label>
+                            <input type="text" class="form-control" id="razaoSocialEmitente">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cpfCNPJEmitente" class="form-label">CPF/CNPJ</label>
+                            <input type="text" class="form-control " id="cpfCNPJEmitente">
+                            <span class="error-mask error">Entrada inválida</span>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="inscEstadualEmitente" class="form-label">Inscrição Estadual</label>
+                            <input type="text" class="form-control" id="inscEstadualEmitente">
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        
+                        <div class="col-md-4">
+                            <label for="telefoneEmitente" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefoneEmitente">
+                            <span class="error-mask error">Formato inválido</span>
+                        </div>
+                    </div>
+
+                    <fieldset class="row">
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <legend>Endereço</legend>
+                            </div>
+                        </div>
+                        
+
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <label for="cepEmitente" class="form-label">CEP</label>
+                                <input type="text" class="form-control" id="cepEmitente" name="cepEmitente" maxlength="9">
+                                <span id="saida"></span>
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-8">
+                                <label for="ruaEmitente" class="form-label">Rua</label>
+                                <input type="text" class="form-control" id="ruaEmitente">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="numeroEmitente" class="form-label">Nº</label>
+                                <input type="text" class="form-control" id="numeroEmitente">
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-6">
+                                <label for="bairroEmitente" class="form-label">Bairro</label>
+                                <input type="text" class="form-control" id="bairroEmitente">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cidadeEmitente" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cidadeEmitente">
+                            </div>
+                        </div>
+                        
+                        <div class="row form-row justify-content-between">
+                            <div class="col-md-4">
+                                <label for="estadoEmitente" class="form-label">Estado</label>
+                                <input type="text" class="form-control" id="estadoEmitente">
+                            </div>
+
+                            <div class="col-md-4 align-self-end text-end">
+                                <input class="form-check-input" type="checkbox" value="salvarRemetente" id="checkSalvarRemetente">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Salvar dados do Emitente
+                                  <span type="button" class="" data-toggle="tooltip" data-placement="left" title="Os dados do emitente serão automaticamente preenchidos na próxima nota.">
+                                    <i class="bi bi-info-circle"></i>
+                                  </span>
+                                  
+                                </label>
+                              </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- DESTINATARIO -->
+            <div class="tab-pane fade" id="nav-destinatario" role="tabpanel" aria-labelledby="nav-destinatario-tab" tabindex="1">
+
+                <form class="row g-3">
+
+                    <div class="row form-row">
+                        <div class="col-md-6">
+                            <label for="razaoSocialDestinatario" class="form-label">Razão Social</label>
+                            <input type="text" class="form-control" id="razaoSocialDestinatario">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cpfCNPJDestinatario" class="form-label">CPF/CNPJ</label>
+                            <input type="text" class="form-control" id="cpfCNPJDestinatario">
+                            <span class="error-mask error">Entrada inválida</span>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="inscEstadualDestinatario" class="form-label">Inscrição Estadual</label>
+                            <input type="text" class="form-control" id="inscEstadualDestinatario">
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-4">
+                            <label for="telefoneDestinatario" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefoneDestinatario">
+                            <span class="error-mask error">Formato inválido</span>
+                        </div>
+                    </div>
+
+
+                    <fieldset class="row">
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <legend>Endereço</legend>
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <label for="cepDestinatario" class="form-label">CEP</label>
+                                <input type="text" class="form-control" id="cepDestinatario" name="cepDestinatario" maxlength="9">
+                                <span id="saidaErroDestinatario"></span>
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-8">
+                                <label for="ruaDestinatario" class="form-label">Rua</label>
+                                <input type="text" class="form-control" id="ruaDestinatario">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="numeroDestinatario" class="form-label">Nº</label>
+                                <input type="text" class="form-control" id="numeroDestinatario">
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-6">
+                                <label for="bairroDestinatario" class="form-label">Bairro</label>
+                                <input type="text" class="form-control" id="bairroDestinatario">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cidadeDestinatario" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cidadeDestinatario">
+                            </div>
+                        </div>
+                        
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <label for="estadoDestinatario" class="form-label">Estado</label>
+                                <input type="text" class="form-control" id="estadoDestinatario">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+
+            </div>
+            <!-- TRANSPORTE -->
+            <div class="tab-pane fade" id="nav-transporte" role="tabpanel" aria-labelledby="nav-transporte-tab" tabindex="2">
+                <form class="row g-3">
+
+                    <div class="row form-row">
+                        <div class="col-md-6">
+                            <label for="razaoSocialTransporte" class="form-label">Razão Social</label>
+                            <input type="text" class="form-control" id="razaoSocialTransporte">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="CNPJTransporte" class="form-label">CNPJ</label>
+                            <input type="text" class="form-control" id="CNPJTransporte">
+                            <span class="error-mask error">Entrada inválida</span>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="inscEstadualTransporte" class="form-label">Inscrição Estadual</label>
+                            <input type="text" class="form-control" id="inscEstadualTransporte">
+                        </div>
+                        
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-4">
+                            <label for="telefoneTransporte" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" id="telefoneTransporte">
+                            <span class="error-mask error">Formato inválido</span>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="CNPJTransporte" class="form-label">Frete por conta</label>
+                            <select id="fretePorConta" class="form-select" aria-label="Default select example">
+                                <option value="0-Emitente" selected>Emitente</option>
+                                <option value="1-Destinatário ">Destinatário</option>
+                                <option value="2-Terceiros ">Terceiros</option>
+                                <option value="9-Sem Frete ">Sem Frete</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="valorFreteTransporte" class="form-label">Valor do Frete</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" class="form-control text-end" id="valorFreteTransporte">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="pesoBrutoTransporte" class="form-label">Peso Bruto</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">kg</span>
+                                <input type="text" class="form-control text-end" id="pesoBrutoTransporte">
+                            </div>
+                        </div>
+                    </div>
+
+                    <fieldset class="row">
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <legend>Endereço</legend>
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <label for="cepTransporte" class="form-label">CEP</label>
+                                <input type="text" class="form-control" id="cepTransporte" name="cepTransporte" maxlength="9">
+                                <span id="saidaErroTransporte"></span>
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-8">
+                                <label for="ruaTransporte" class="form-label">Rua</label>
+                                <input type="text" class="form-control" id="ruaTransporte">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="numeroTransporte" class="form-label">Nº</label>
+                                <input type="text" class="form-control" id="numeroTransporte">
+                            </div>
+                        </div>
+
+                        <div class="row form-row">
+                            <div class="col-md-6">
+                                <label for="bairroTransporte" class="form-label">Bairro</label>
+                                <input type="text" class="form-control" id="bairroTransporte">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cidadeTransporte" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cidadeTransporte">
+                            </div>
+                        </div>
+                        
+                        <div class="row form-row">
+                            <div class="col-md-4">
+                                <label for="estadoTransporte" class="form-label">Estado</label>
+                                <input type="text" class="form-control" id="estadoTransporte">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+            <!-- PRODUTOS -->
+            <div class="tab-pane fade" id="nav-produtos" role="tabpanel" aria-labelledby="nav-produtos-tab" tabindex="3">
+
+                <form class="row g-3">
+
+                    <div class="row form-row">
+                        <div class="col-md-2">
+                            <label for="codigoProduto" class="form-label">Código</label>
+                            <input type="text" class="form-control" id="codigoProduto">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="descricaoProduto" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="descricaoProduto">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="quantidadeProduto" class="form-label">Quantidade</label>
+                            <input type="text" class="form-control text-end" id="quantidadeProduto">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="valorProduto" class="form-label">Valor Unitário</label>
+                            <input type="text" class="form-control text-end" id="valorProduto">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="descontoProduto" class="form-label">Desconto</label>
+                            <input type="text" class="form-control text-end" id="descontoProduto">
+                        </div>
+                    </div>
+
+                    <div class="row form-row justify-content-end">
+                        <div class="col-md-4 d-flex justify-content-end gap-2">
+                            <button class="btn btn-primary" type="button" id="btnIncluirProduto">Incluir</button>
+                            <button class="btn btn-primary" type="button" id="btnExcluirProduto"  data-toggle="tooltip" data-placement="top" title="Selecione um produto na tabela">Excluir</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row form-row px-3">
+                        
+                    <div class="col-md-12 table-col">
+                         <table class="table table-striped " id="table">
+                             <thead>
+                                 <tr>
+                                     <th scope="col">ITEM</th>
+                                     <th scope="col">COD.</th>
+                                     <th scope="col">DESCRIÇÃO</th>
+                                     <th scope="col" class="text-center">QTD.</th>
+                                     <th scope="col" class="text-end">VALOR UNIT.</th>
+                                     <th scope="col" class="text-end">DESCONTO</th>
+                                     <th scope="col" class="text-end">VALOR TOTAL</th>
+                                 </tr>
+                             </thead>
+                             <tbody id="inserirProdutos" class="text-right">
+                                 
+                             </tbody>
+                         </table>
+                    </div>
+
+                </div>
+
+                <div class="row form-row px-3">
+                        
+                    <div class="col-md-12 my-2 d-flex align-items-end justify-content-evenly" style="height: 60px">
+
+                        <div>
+                            <span class="mb-0 fw-medium">Valor do Frete:</span>
+                            <span class="mb-0 text-end">
+                                R$ <span id="entradaFrete" >0,00</span>
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="mb-0 fw-medium">Valor dos Descontos:</span>
+                            <span class="mb-0 text-end">
+                                R$ <span id="entradaDescontos">0,00</span>
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="mb-0 fw-medium">Valor dos Produtos:</span>
+                            <span class="mb-0 text-end">
+                                R$ <span id="entradaTotalProdutos">0,00</span>
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="mb-0 fw-medium">Valor da Nota:</span>
+                            <span class="mb-0 text-end">
+                                R$ <span id="entradaTotalNota" >0,00</span>
+                            </span>
+                        </div>
+                         
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- DADOS ADICIONAIS -->
+            <div class="tab-pane fade" id="nav-adicionais" role="tabpanel" aria-labelledby="nav-adicionais-tab" tabindex="3">
+                <form action="" class="row g-3">
+                    <div class="row form-row">
+                        <div class="col-md-12">
+                            <label for="infosComplementares" class="form-label">Informações Complementares</label>
+                            <textarea id="infosComplementares" cols="30" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="" class="row g-3">
+                    <div class="row form-row">
+                        <div class="col-md-12">
+                            <label for="reservadoFisco" class="form-label">Reservado ao Fisco</label>
+                            <textarea id="reservadoFisco" cols="30" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+
+        <div class="row form-row me-4 justify-content-end">
+            <div class="col-md-4 d-flex justify-content-end gap-2 px-0">
+                <button class="btn btn-light" id="btn-gerar-danfe">
+                    <i class="bi bi-printer"></i>
+                    Gerar DANFE
+                </button>
+                <button class="btn btn-dark" id="btn-limpar-danfe">
+                    <i class="bi bi-eraser"></i>
+                    Limpar 
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- InputMask -->
+    <script src="vendor/RobinHerbots-Inputmask-6a54ccd/dist/inputmask.js"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+    <!-- Script -->
+    <!-- <script type="module" src="js/main.js"></script> -->
+    <script type="module" src="js/index.js"></script>
+
+</body>
+</html>

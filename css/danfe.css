@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container {
+  margin: 32px auto;
+  width: 850px;
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+    rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  padding: 2rem;
+}
+
+.section {
+  margin-bottom: 0.5rem;
+}
+
+.main-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 0.15rem;
+}
+
+.main-section .danfe-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.main-section .danfe-content .text {
+  text-align: center;
+}
+
+.main-section .danfe-content .danfe-container {
+  display: flex;
+}
+
+.danfe-content .danfe-container .tipo {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.danfe-content .danfe-container .tipo > span {
+  border: 1px solid #000;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.danfe-content .danfe-container .dados {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-weight: 600;
+}
+
+.emitente-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.destinatario-section .row:nth-child(2) {
+  display: grid;
+  grid-template-columns: 65% 20% 15%;
+}
+
+.destinatario-section .row:nth-child(3) {
+  display: grid;
+  grid-template-columns: 50% 18% 12% 20%;
+}
+
+.destinatario-section .row:nth-child(4) {
+  display: grid;
+  grid-template-columns: 30% 20% 10% 20% 20%;
+}
+
+.transportador-section .row:nth-child(2) {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.transportador-section .row:nth-child(3) {
+  display: grid;
+  grid-template-columns: 40% 25% 15% 20%;
+}
+
+.transportador-section .row:nth-child(4) {
+  display: grid;
+  grid-template-columns: 40% 25% 15% 20%;
+}
+
+.calculo-section .row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.produtos-section .row {
+  border: 1px solid #000000;
+  min-height: 200px;
+}
+
+.adicionais-section .row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.adicionais-section .row .box-content {
+  min-height: 120px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.row {
+  width: 100%;
+  /* gap: 0.15rem; */
+  margin-bottom: 0.15rem;
+}
+
+.main-box-content,
+.box-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* vertical-align: top; */
+  font-size: 16px;
+
+  border: 1px solid #000000;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+
+  box-sizing: border-box;
+}
+
+.row .box-content {
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.main-box-content {
+  min-height: 150px;
+}
+
+.emitente-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.main-box-content h1 {
+  font-size: 1.5em;
+}
+
+.box-content .box-title {
+  font-size: 10px;
+}
+
+.box-content .box-text {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+
+th {
+  font-size: 12px;
+}
+
+td {
+  font-size: 10px;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+
+#infosComplementares,
+#reservadoFisco {
+  text-transform: none;
+}
+
+.btn-container {
+  width: 850px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: end;
+  margin: 1rem auto;
+}
+
+.btn-container button {
+  width: 120px;
+  font-size: 1.025em;
+  font-weight: 600;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-container button:active,
+.btn-container button:focus {
+  transform: scale(0.95);
+  transition: 0.4s;
+}
+
+#btn-imprimir {
+  background-color: #333;
+  color: #f5f5f5;
+  border: 1px solid transparent;
+}
+
+#btn-voltar {
+  background-color: transparent;
+  color: #333333;
+  border: 1px solid #333333;
+}
+
+@media print {
+  .btn-container {
+    display: none !important;
+    /* visibility: hidden; */
+  }
+
+  .container {
+    box-shadow: none;
+    padding: 0;
+  }
+}

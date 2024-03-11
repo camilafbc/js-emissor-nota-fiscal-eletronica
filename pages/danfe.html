@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANFE</title>
+  <link rel="shortcut icon" href="../image/icons8-note-100.png" type="image/x-icon">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/danfe.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- MAIN-->
+    <div class="main-section">
+      <div class="main-box-content emitente-content">
+        <h1 id="razaoSocialEmitente">
+          
+        </h1>
+        <p id="enderecoEmitente">
+        </p>
+        <p id="cidadeEstadoCEPEmitente">
+        </p>
+        <p>
+          Telefone:
+          <span id="telefoneEmitente">
+          </span>
+        </p>
+      </div>
+      <div class="main-box-content danfe-content">
+        <div class="text">
+          <h2>DANFE</h2>
+          <p >Documento Auxiliar da Nota Fiscal Eletrônica</p>
+        </div>
+        <div class="danfe-container">
+          <div class="tipo">
+           <div>
+            <p>0-Entrada</p>
+            <p>1-Saída</p>
+           </div>
+            <span id="tipoNota">
+              <!--  -->
+            </span>
+          </div>
+          <div class="dados">
+            <p>
+              Nº: 
+              <span id="numNota">
+                <!--  -->
+              </span>
+            </p>
+            <p>
+              SÉRIE:
+              <span id="serieNota">
+                <!--  -->
+              </span>
+            </p>
+            <p>Página 1 de 1</p>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+    <!-- EMITENTE -->
+    <div class="emitente-section section mt-1">
+      <div class="box-content">
+        <span class="box-title">NATUREZA DA OPERAÇÃO</span>
+        <p class="box-text" id="naturezaOp">
+          <!--  -->
+        </p>
+      </div>
+      <div class="box-content">
+        <span class="box-title">INSCRIÇÃO ESTADUAL</span>
+        <p class="box-text" id="inscEstadualEmitente">
+          <!--  -->
+        </p>
+      </div>
+      <div class="box-content">
+        <span class="box-title">CPF/CNPJ</span>
+        <p class="box-text" id="cpfCNPJEmitente">
+          <!--  -->
+        </p>
+      </div>
+    </div>
+    <!-- DESTINATARIO -->
+    <div class="destinatario-section section">
+      <p class="section-title">DESTINATÁRIO/REMETENTE</p>
+      <div class="row">
+        <div class="box-content">
+          <span class="box-title">NOME/RAZÃO SOCIAL</span>
+          <p class="box-text" id="razaoSocialDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">CPF/CNPJ</span>
+          <p class="box-text" id="cpfCNPJDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">DATA EMISSÃO</span>
+          <p class="box-text" id="dataEmissao">
+            <!--  -->
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class="box-content">
+          <span class="box-title">ENDEREÇO</span>
+          <p class="box-text" id="enderecoDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">BAIRRO/DISTRITO</span>
+          <p class="box-text" id="bairroDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">CEP</span>
+          <p class="box-text" id="cepDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">DATA DE ENTRADA/SAÍDA</span>
+          <p class="box-text" id="dataEntradaSaida">
+            <!--  -->
+          </p>
+        </div>
+        
+      </div>
+
+
+      <div class="row">
+        <div class="box-content">
+          <span class="box-title">MUNICÍPIO</span>
+          <p class="box-text" id="cidadeDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">FONE/FAX</span>
+          <p class="box-text" id="telefoneDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">UF</span>
+          <p class="box-text" id="estadoDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">INSCRIÇÃO ESTADUAL</span>
+          <p class="box-text" id="inscEstadualDestinatario">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">HORA DE ENTRADA/SAIDA</span>
+          <p class="box-text" id="entradaHora">
+            <!--  -->
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- TRANSPORTADOR -->
+    <div class="transportador-section section">
+      <p class="section-title">TRANSPORTADOR</p>
+      <div class="row">
+        <div class="box-content">
+          <span class="box-title">RAZÃO SOCIAL</span>
+          <p class="box-text" id="razaoSocialTransporte">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">FRETE POR CONTA</span>
+          <p class="box-text" id="fretePorConta">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">CNPJ</span>
+          <p class="box-text" id="CNPJTransporte">
+            <!--  -->
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="box-content">
+          <span class="box-title">ENDEREÇO</span>
+          <p class="box-text" id="enderecoTransporte">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">BAIRRO/DISTRITO</span>
+          <p class="box-text" id="bairroTransporte">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">CEP</span>
+          <p class="box-text" id="cepTransporte">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">INSCRIÇÃO ESTADUAL</span>
+          <p class="box-text" id="inscEstadualTransporte">
+            <!--  -->
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="box-content" >
+          <span class="box-title">MUNICÍPIO</span>
+          <p class="box-text" id="cidadeTransporte">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">FONE/FAX</span>
+          <p class="box-text" id="telefoneTransporte">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">UF</span>
+          <p class="box-text" id="estadoTransporte">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">PESO BRUTO</span>
+          <p class="box-text" id="pesoBrutoTransporte">
+            <!--  -->
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- CÁLCULO -->
+    <div class="calculo-section section">
+      <p class="section-title">CÁLCULOS</p>
+      <div class="row">
+        <div class="box-content">
+          <span class="box-title">VALOR TOTAL DOS PRODUTOS</span>
+          <p class="box-text text-end" id="saidaTotalProdutos">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">VALOR DO FRETE</span>
+          <p class="box-text" id="valorDoFrete">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">DESCONTOS</span>
+          <p class="box-text" id="saidaDescontos">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">VALOR TOTAL DA NOTA</span>
+          <p class="box-text" id="saidaTotalNota">
+           <!--  -->
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- PRODUTOS -->
+    <div class="produtos-section section">
+      <p class="section-title">DADOS DO PRODUTO/SERVIÇO</p>
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <th>CÓDIGO</th>
+              <th>DESCRIÇÃO DO PRODUTO/SERVIÇO</th>
+              <th>QTD</th>
+              <th>VLR. UNIT.</th>
+              <th>DESCONTO</th>
+              <th>TOTAL</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- DADOS ADICIONAIS -->
+    <div class="adicionais-section">
+      <p class="section-title">DADOS ADICIONAIS</p>
+      <div class="row">
+        <div class="box-content">
+          <span class="box-title">INFORMAÇÕES COMPLEMENTARES</span>
+          <p class="box-text" id="infosComplementares">
+            <!--  -->
+          </p>
+        </div>
+        <div class="box-content">
+          <span class="box-title">RESERVA AO FISCO</span>
+          <p class="box-text" id="reservadoFisco">
+            <!--  -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <button id="btn-imprimir" class="no-print" onclick="window.print()">
+      <i class="bi bi-printer-fill"></i>
+      Imprimir
+    </button>
+    <button id="btn-voltar" class="no-print" onclick="window.close()">
+      <!-- <i class="bi bi-x-circle"></i> -->
+      <i class="bi bi-x-lg"></i>
+      Fechar
+    </button>
+  </div>
+
+  <script src="../js/danfe.js" type="module"></script>
+</body>
+
+</html>

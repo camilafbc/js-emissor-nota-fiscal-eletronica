@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-background-color: #efefef;
+  --laranja-senac: #f7941d;
+  --laranja-claro-senac: #fdc180;
+  --white-color: #ffffff;
+  --soft-white-color: #f5f5f5;
+  --text-color: #333333;
+  --cinza: #cccccc;
+  --cinza-escuro: #35424a;
+  --table-row-color: #ddd;
+  --red-color: #ff0000;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-background-color);
+}
+
+.container {
+  background-color: var(--cinza);
+  border: 3px solid var(--laranja-senac);
+  border-radius: 0.25rem;
+  /* padding: 1.5rem; */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.header {
+  height: 50px;
+  padding: 0.5rem;
+  background-color: var(--laranja-senac);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header-content > img {
+  width: 40px;
+}
+
+.header-content h1 {
+  font-size: 1.35em;
+  color: var(--soft-white-color);
+  letter-spacing: 1px;
+}
+
+.danfe_container {
+  display: grid;
+  grid-template-columns: 11% 7% 16% 18% 32% 16%;
+  align-items: center;
+  font-size: 1.15em;
+  background-color: var(--white-color);
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  border: 1px solid var(--laranja-claro-senac);
+
+  height: 90px;
+}
+
+.border-right {
+  border-right: 2px solid var(--laranja-claro-senac);
+}
+
+input[name="tipoNota"] {
+  cursor: pointer;
+}
+
+nav .nav-link {
+  color: var(--cinza-escuro);
+}
+
+nav .nav-link:hover {
+  color: var(--laranja-senac);
+}
+
+
+#nav-tabContent {
+  min-height: 620px;
+  background-color: var(--white-color);
+
+  border-right: 1.5px solid var(--laranja-claro-senac);
+  border-left: 1.5px solid var(--laranja-claro-senac);
+  border-bottom: 1.5px solid var(--laranja-claro-senac);
+}
+
+.nav-tabs .nav-link.active {
+  border-right: 1.5px solid var(--laranja-claro-senac);
+  border-left: 1.5px solid var(--laranja-claro-senac);
+  border-top: 1.5px solid var(--laranja-claro-senac);
+  border-bottom: 1.5px solid transparent;
+}
+
+.tab-pane {
+  padding-top: 1.5rem;
+}
+
+.tab-pane:not(.active) {
+  border-top: 1.5px solid var(--laranja-claro-senac);
+}
+
+#nav-tab {
+  border-bottom: 1.5px solid var(--laranja-claro-senac);
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom: 1.5px solid transparent;
+}
+
+.nav-tabs .nav-link {
+  border-bottom: 1.5px solid var(--laranja-claro-senac);
+}
+
+form {
+  padding: 1rem 0;
+}
+
+.form-row {
+  margin: 0.5rem 0;
+}
+
+.form-check-input:checked {
+  background-color: var(--cinza-escuro);
+}
+
+table {
+  table-layout: auto;
+}
+
+th,
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th {
+    color: var(--text-color);
+    opacity: 0.8
+}
+
+.table-col {
+  border: 1px solid var(--table-row-color);
+  border-radius: 0.5rem;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.table-col::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.table-col::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.table-col::-webkit-scrollbar-thumb {
+  background-color: var(--laranja-senac);
+  border-radius: 1rem;
+}
+
+button:active,
+button:focus {
+  transform: scale(0.95);
+  transition: 0.4s;
+}
+
+#btnIncluirProduto,
+#btnExcluirProduto {
+    width: 75px;
+}
+
+#btnIncluirProduto {
+  border: none;
+  background-color: var(--cinza-escuro);
+}
+
+#btnExcluirProduto {
+    background-color: transparent;
+    border: 1px solid var(--cinza-escuro);
+    color: var(--cinza-escuro);
+}
+
+#btnExcluirProduto:disabled {
+    background-color: var(--laranja-claro-senac);
+}
+
+#btn-gerar-danfe,
+#btn-limpar-danfe {
+  border: none;
+  width: 150px;
+  height: 45px;
+  font-weight: 600;
+}
+
+#btn-gerar-danfe {
+  background-color: var(--laranja-senac);
+}
+
+#btn-limpar-danfe {
+  background-color: var(--text-color);
+}
+
+.error {
+  color: var(--red-color);
+}
+
+.error-mask {
+  display: none;
+}
+
+.danfe-subtitles {
+  font-size: 1.1em;
+}
+
+.selected-row > td {
+    background-color: var(--cinza);
+}

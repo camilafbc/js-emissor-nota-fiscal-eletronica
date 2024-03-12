@@ -75,7 +75,7 @@ body {
 
 .destinatario-section .row:nth-child(3) {
   display: grid;
-  grid-template-columns: 50% 18% 12% 20%;
+  grid-template-columns: 50% 21% 10% 19%;
 }
 
 .destinatario-section .row:nth-child(4) {
@@ -90,7 +90,7 @@ body {
 
 .transportador-section .row:nth-child(3) {
   display: grid;
-  grid-template-columns: 40% 25% 15% 20%;
+  grid-template-columns: 49% 24% 10% 17%;
 }
 
 .transportador-section .row:nth-child(4) {
@@ -124,7 +124,6 @@ body {
 
 .row {
   width: 100%;
-  /* gap: 0.15rem; */
   margin-bottom: 0.15rem;
 }
 
@@ -133,8 +132,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* vertical-align: top; */
-  font-size: 16px;
+  font-size: 15px;
 
   border: 1px solid #000000;
   border-radius: 0.5rem;
@@ -171,7 +169,7 @@ body {
 
 .box-content .box-text {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 table {

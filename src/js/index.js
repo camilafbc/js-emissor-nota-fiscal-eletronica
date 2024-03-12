@@ -1,11 +1,11 @@
 import { buscarEndereco,preencherCampos,erroCEP,limparErro } from "./modules/endereco.js";
-import { preencherTabela, atualizarTotais } from "./modules/tabelaDeProdutos.js";
+import { gerarDanfe } from './modules/gerarDanfe.js';
+import { iniciarAplicacao } from './modules/iniciarAplicacao.js';
+import { aplicarMascaras } from './modules/inputHandler.js';
+import { limpar } from './modules/limpar.js';
 import { mascaraCpfOuCNPJ, mascaraTelefone, mascaraNumerica, mascaraMoeda, mascaraPeso } from './modules/masks.js';
 import { ativarNavLink, ativarTab } from './modules/navTabs.js';
-import { aplicarMascaras } from './modules/inputHandler.js';
-import { iniciarAplicacao } from './modules/iniciarAplicacao.js';
-import { gerarDanfe } from './modules/gerarDanfe.js';
-import { limpar } from './modules/limpar.js';
+import { preencherTabela, atualizarTotais } from "./modules/tabelaDeProdutos.js";
 
 // Inicia a Aplicação
 iniciarAplicacao();

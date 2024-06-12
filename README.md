@@ -1,6 +1,6 @@
 # 📄 Emissor de Nota Fiscal Eletrônica
 
-![Screenshot](link-para-screenshot.png)
+![Screenshot](https://github.com/camilafbc/js-emissor-nota-fiscal-eletronica/blob/main/to-readme.jpg?raw=true)
 
 O "Emissor de Nota Fiscal Eletrônica" foi desenvolvido como parte do curso Técnico em Desenvolvimento de Sistemas do SENAC, atendendo a uma demanda de um dos professores do curso Técnico em Administração da instituição. O objetivo era criar um sistema que simulasse a emissão de notas fiscais eletrônicas para utilização em aulas.
 
